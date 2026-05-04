@@ -30,6 +30,8 @@ From the project root:
 
 ```bash
 g++ -std=c++17 main.cpp CPU.cpp Parser.cpp -o mips_sim
+or If you want it to work from regular cmd too, compile with this flag instead:
+g++ -o mips_sim.exe main.cpp CPU.cpp Encoding.cpp Parser.cpp -static
 ```
 
 Optional: `Encoding.cpp` is included in the repo if you want to build a small tool for 32-bit instruction listings; the simulator core does not require it.
