@@ -1,6 +1,8 @@
-# MIPS Simulator
+## MIPS Simulator
 
 Instruction-by-instruction simulator for a 5-stage pipelined MIPS-like processor.
+
+## CONTRIBUTORS: Sarbocha Pandey, Tyerrance Johnson, Santiago Bolanos
 
 ## Supported instructions (ISA)
 
@@ -60,7 +62,7 @@ mips_sim <program.asm> [--debug]
 
 | Flag | Meaning |
 |------|---------|
-| `--debug` | Per-cycle trace: pipeline stage instructions, one `Control:` line, and `R0`–`R7` snapshot (full registers after run). |
+| `--debug` | Per-cycle trace: pipeline stage instructions, one `Control:` line (`regWrite`, `memRead`, `memWrite`, `memToReg`, `useImmediate`, `branch`, `jump`, `isNop`), and `R0`–`R7` snapshot (full registers after run). |
 | `-h`, `--help` | Print usage and exit successfully (no file required). |
 
 **Exit status:**
@@ -88,7 +90,7 @@ At the end of execution the simulator prints:
 In debug mode (`--debug`), each cycle prints (simple / original-style trace):
 
 - Pipeline latches: `IF/ID`, `ID/EX`, `EX/MEM`, `MEM/WB` with the instruction text in each stage
-- One `Control:` line (decode-stage signals: reg write, memory, branch, jump)
+- One `Control:` line (decode-stage: `regWrite`, `memRead`, `memWrite`, `memToReg`, `useImmediate`, `branch`, `jump`, `isNop`)
 - Register snapshot: **`R0`–`R7`** on one line (full `R0`–`R31` appears in **Final Register State** after the run)
 
 ## Example

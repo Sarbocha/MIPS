@@ -210,8 +210,10 @@ void CPU::printState(int cycle) {
              << " memRead=" << id_ex.memRead
              << " memWrite=" << id_ex.memWrite
              << " memToReg=" << id_ex.memToReg
+             << " useImmediate=" << id_ex.useImmediate
              << " branch=" << id_ex.branch
-             << " jump=" << id_ex.jump << endl;
+             << " jump=" << id_ex.jump
+             << " isNop=" << id_ex.isNop << endl;
     }
 
     cout << "Registers:\n";
