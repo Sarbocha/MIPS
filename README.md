@@ -90,3 +90,29 @@ In debug mode (`--debug`), each cycle prints (simple / original-style trace):
 - Pipeline latches: `IF/ID`, `ID/EX`, `EX/MEM`, `MEM/WB` with the instruction text in each stage
 - One `Control:` line (decode-stage signals: reg write, memory, branch, jump)
 - Register snapshot: **`R0`–`R7`** on one line (full `R0`–`R31` appears in **Final Register State** after the run)
+
+## Example
+
+**sample.asm**
+```asm
+ADDI $1, $0, 10   # R1 = 10
+ADDI $2, $0, 20   # R2 = 20
+ADD  $3, $1, $2   # R3 = 30
+SW   $3, 0($0)    # Mem[0] = 30
+LW   $4, 0($0)    # R4 = 30
+
+Final Register State:
+R0: 0
+R1: 10
+R2: 20
+R3: 30
+R4: 30
+R5: 0
+...
+R31: 0
+
+Final Memory State:
+Mem[0] = 30
+Mem[1] = 0
+...
+Mem[15] = 0
